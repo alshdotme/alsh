@@ -1,92 +1,55 @@
 ---
-import Layout from '../components/Layout.astro';
-
-const ip = Astro.request.headers.get('x-real-ip')
-const city = decodeURIComponent(Astro.request.headers.get('x-vercel-ip-city'))
+import Layout from '../components/Layout.astro'
+import IconLink from '../components/IconLink.astro'
+import NavItem from '../components/NavItem.astro'
 ---
 
-<Layout title="Astro Vercel Edge">
-	<main>
-		<h1>Hello from the <span class="text-gradient">Edge</span></h1>
-		<div class="banner">
-			<p>Your city<br /><strong>{city}</strong></p>
-			<p>Your IP address<br /><strong>{ip}</strong></p>
-		</div>
-		<p class="footer">Built with <a href="https://github.com/withastro/astro">Astro</a> and <a href="https://github.com/withastro/astro/tree/main/packages/integrations/vercel">@astrojs/vercel</a> — <a href="https://github.com/JuanM04/astro-on-the-edge">Source</a></p>
-	</main>
+<Layout>
+  <header
+    class="px-4 w-full max-w-70ch mx-auto mb-28 md:mb-0 pt-4 md:max-h-100dvh md:py-32 md:pl-18 md:flex md:flex-col md:justify-between">
+    <div>
+      <h1
+        class="font-sans text-2.05rem mt-6 mb-2 md:text-3.052rem font-600 text-violet-1">
+        Alastair Herd
+      </h1>
+      <h2 class="text-1.25rem mt-0 font-500 text-violet-1">
+        Senior Front-End Engineer at Dunelm
+      </h2>
+      <p class="text-balance text-1rem md:leading-[1.75]">
+        I transform ideas into accessible, performant and human-centered
+        experiences for the web.
+      </p>
+      <nav aria-label="In-page main jump links">
+        <ul
+          class="text-sm uppercase font-700 tracking-widest mt-24 flex space-x-8">
+          <NavItem to="#about">About</NavItem>
+          <NavItem to="#blog">Blog</NavItem>
+          <NavItem to="#uses">Uses</NavItem>
+        </ul>
+      </nav>
+    </div>
+    <ul class="flex space-x-5 mt-16 justify-self-end">
+      <IconLink
+        title="X.com"
+        url="https://x.com/alshdotme"
+        icon="i-fa6-brands-x-twitter"
+      />
+      <IconLink
+        title="LinkedIn"
+        url="https://www.linkedin.com/in/alsh"
+        icon="i-fa6-brands-linkedin"
+      />
+      <IconLink
+        title="GitHub"
+        url="https://github.com/alshdotme"
+        icon="i-fa6-brands-github"
+      />
+      <IconLink
+        title="Instagram"
+        url="https://www.instagram.com/alstrhrd/"
+        icon="i-fa6-brands-instagram"
+      />
+    </ul>
+  </header>
+  <main class="max-w-31ch md:max-w-70ch m-auto"></main>
 </Layout>
-
-<style>
-	:root {
-		--color-border: hsl(17, 24%, 90%);
-		--astro-gradient: linear-gradient(0deg,#4F39FA, #DA62C4);
-		--night-sky-gradient: linear-gradient(0deg, #392362 -33%, #431f69 10%, #30216b 50%, #1f1638 100%);
-	}
-
-	h2 {
-		margin: 0;
-		transition: color 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-	}
-
-	h2 span {
-		display: inline-block;
-		transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
-	}
-
-	code {
-		font-size: 0.875em;
-		border: 0.1em solid var(--color-border);
-		border-radius: 4px;
-		padding: 0.15em 0.25em;
-	}
-
-	main {
-		margin: auto;
-    padding: 1em;
-		max-width: 60ch;
-	}
-
-	.text-gradient {
-		font-weight: 900;
-		background-image: var(--astro-gradient);
-		-webkit-background-clip: text;
-  	-webkit-text-fill-color: transparent;
-		background-size: 100% 200%;
-		background-position-y: 100%;
-		border-radius: 0.4rem;
-		animation: pulse 4s ease-in-out infinite;
-	}
-
-	@keyframes pulse {
-		0%, 100% {
-			background-position-y: 0%;
-		}
-		50% {
-			background-position-y: 80%;
-		}
-	}
-
-	.banner {
-		background-image: var(--night-sky-gradient);
-		padding: 0.5rem 1.5rem;
-		border-radius: 0.4rem;
-		color: var(--color-bg);
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
-		gap: 1rem;
-	}
-
-	.banner strong {
-		font-size: 1.75em;
-	}
-
-	.footer {
-		font-size: 0.8rem;
-		text-align: center;
-		margin-top: 3rem;
-	}
-
-	.footer a {
-		text-decoration: none;
-	}
-</style>

@@ -1,0 +1,15 @@
+---
+type Props = {
+  title: string
+  url: string
+  icon: string
+}
+const { title, url, icon } = Astro.props
+---
+
+<li
+  class="text-violet-3 hover:text-violet-1 focus:text-violet-1 transition-colors duration-250">
+  <a href={url} class={icon}>
+    <span class="sr-only">{title}</span>
+  </a>
+</li>

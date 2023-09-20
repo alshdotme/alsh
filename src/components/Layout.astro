@@ -1,55 +1,52 @@
 ---
 export interface Props {
-	title: string;
+  title?: string
 }
 
-const { title } = Astro.props as Props;
+const { title = 'Alsh // Web' } = Astro.props as Props
 ---
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width">
-  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-	<title>{title}</title>
-</head>
-<body>
-	<slot />
-</body>
+<!doctype html>
+<html lang="en" class="scroll-smooth antialiased">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <title>{title}</title>
+  </head>
+  <body class="relative font-sans leading-[1.75] text-violet-200 bg-black">
+    <div
+      class="bg absolute inset-0 w-100vw h-100vh opacity-40 main-bg-gradient -z-1">
+    </div>
+    <div class="grid grid-cols-2 gap-8 min-h-100dvh max-w-screen-xl m-auto">
+      <slot />
+    </div>
+    <div class="absolute inset-0 w-100dvw h-100dvh mouse-gradient -z-1"></div>
+    <footer>&copy; 2023-present Alastair Herd. All Rights Reserved.</footer>
+  </body>
 </html>
 
-<style>
-  :root {
-    --font-size-base: clamp(1rem, 0.34vw + 0.91rem, 1.19rem);
-		--font-size-lg: clamp(1.2rem, 0.7vw + 1.2rem, 1.5rem); 
-    --font-size-xl: clamp(2.44rem, 2.38vw + 1.85rem, 3.75rem);
+<script>
+  const mouseGradientContainer =
+    document.querySelector<HTMLDivElement>('.mouse-gradient')
+  const setMousePosition = (pos: { clientX: number; clientY: number }) => {
+    if (window.innerWidth < 1024) return
 
-    --color-text: hsl(12, 5%, 4%);
-    --color-bg: hsl(10, 21%, 95%);
+    const x = Math.round((pos.clientX / window.innerWidth) * 100)
+    const y = Math.round((pos.clientY / window.innerHeight) * 100)
+
+    mouseGradientContainer?.style.setProperty('--mouse-x', `${x}%`)
+    mouseGradientContainer?.style.setProperty('--mouse-y', `${y}%`)
   }
 
-  html {
-    font-family: system-ui, sans-serif;
-    font-size: var(--font-size-base);
-    color: var(--color-text);
-    background-color: var(--color-bg);
-  }
-
-  body {
-    margin: 0;
-  }
-
-  :global(h1) {
-    font-size: var(--font-size-xl);
-  }
-
-  :global(h2) {
-    font-size: var(--font-size-lg);
-  }
-
-  :global(code) {
-    font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
-			Bitstream Vera Sans Mono, Courier New, monospace;
-  }
-</style>
+  document.addEventListener('pointermove', setMousePosition)
+</script>
+<script>
+  window.va =
+    window.va ||
+    function () {
+      // @ts-expect-error
+      ;(window.vaq = window.vaq || []).push(arguments)
+    }
+</script>
+<script defer src="/_vercel/insights/script.js"></script>

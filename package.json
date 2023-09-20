@@ -1,5 +1,5 @@
 {
-  "name": "@example/basics",
+  "name": "alsh.me",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -10,6 +10,26 @@
   },
   "devDependencies": {
     "@astrojs/vercel": "^3.5.0",
-    "astro": "^2.6.4"
+    "@iconify-json/fa6-brands": "^1.1.13",
+    "@typescript-eslint/parser": "^6.6.0",
+    "@unocss/reset": "^0.55.7",
+    "astro": "^2.6.4",
+    "eslint": "^8.48.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-astro": "^0.29.0",
+    "eslint-plugin-import": "^2.25.3",
+    "eslint-plugin-jsx-a11y": "^6.7.1",
+    "prettier": "^3.0.3",
+    "prettier-plugin-astro": "^0.12.0",
+    "unocss": "^0.55.7",
+    "unocss-preset-radix": "^2.5.1"
+  },
+  "dependencies": {
+    "@vercel/analytics": "^1.0.2",
+    "class-variance-authority": "^0.7.0"
+  },
+  "resolutions": {
+    "@unocss/core": "^0.55.7"
   }
 }
