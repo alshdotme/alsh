@@ -1,4 +1,6 @@
 ---
+import IconLink from './IconLink.astro'
+import TextLink from './TextLink.astro'
 export interface Props {
   title?: string
 }
@@ -14,21 +16,30 @@ const { title = 'Alsh // Web' } = Astro.props as Props
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <title>{title}</title>
   </head>
-  <body class="relative font-sans leading-[1.75] text-violet-200 bg-black">
-    <div
-      class="bg absolute inset-0 w-100vw h-100vh opacity-40 main-bg-gradient -z-1">
-    </div>
-    <div class="grid grid-cols-2 gap-8 min-h-100dvh max-w-screen-xl m-auto">
+  <body class="relative font-sans leading-[1.75] text-zinc-5 bg-black lg:text-lg">
+    <div class="grid lg:max-w-70ch m-auto">
       <slot />
     </div>
-    <div class="absolute inset-0 w-100dvw h-100dvh mouse-gradient -z-1"></div>
-    <footer>&copy; 2023-present Alastair Herd. All Rights Reserved.</footer>
+    <div class="fixed inset-0 w-100dvw mouse-gradient -z-1"></div>
+    <footer
+      class="lg:max-w-70ch m-auto border-t border-solid border-zinc-5 mt-16 mb-6 lg:flex lg:flex-row-reverse lg:gap-x-16 lg:py-4 justify-between items-center">
+      <p class="text-xs">
+        Built With <TextLink to="https://www.astro.build">Astro</TextLink> and <TextLink to="https://www.unocss.dev">UnoCSS</TextLink>. Coded in
+        <TextLink to="https://code.visualstudio.com/">Visual Studio Code</TextLink>. Hosted on <TextLink to="https://vercel.com">Vercel</TextLink> at
+        the edge. All text is the <TextLink to="https://fonts.google.com/specimen/Inter">Inter typeface</TextLink>.
+      </p>
+      <ul class="flex space-x-5 justify-self-end">
+        <IconLink title="X.com" url="https://x.com/alshdotme" icon="i-fa6-brands-x-twitter" />
+        <IconLink title="LinkedIn" url="https://www.linkedin.com/in/alsh" icon="i-fa6-brands-linkedin" />
+        <IconLink title="GitHub" url="https://github.com/alshdotme" icon="i-fa6-brands-github" />
+        <IconLink title="Instagram" url="https://www.instagram.com/alstrhrd/" icon="i-fa6-brands-instagram" />
+      </ul>
+    </footer>
   </body>
 </html>
 
 <script>
-  const mouseGradientContainer =
-    document.querySelector<HTMLDivElement>('.mouse-gradient')
+  const mouseGradientContainer = document.querySelector<HTMLDivElement>('.mouse-gradient')
   const setMousePosition = (pos: { clientX: number; clientY: number }) => {
     if (window.innerWidth < 1024) return
 

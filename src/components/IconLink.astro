@@ -7,9 +7,8 @@ type Props = {
 const { title, url, icon } = Astro.props
 ---
 
-<li
-  class="text-violet-3 hover:text-violet-1 focus:text-violet-1 transition-colors duration-250">
-  <a href={url} class={icon}>
+<li class="">
+  <a href={url} class={`${icon} text-zinc-5 hover:text-zinc-1 active:text-zinc-1 focus-visible:text-zinc-1 transition-colors duration-150`}>
     <span class="sr-only">{title}</span>
   </a>
 </li>

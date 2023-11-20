@@ -1,55 +1,48 @@
 ---
 import Layout from '../components/Layout.astro'
-import IconLink from '../components/IconLink.astro'
-import NavItem from '../components/NavItem.astro'
+
+import TextLink from '../components/TextLink.astro'
 ---
 
 <Layout>
-  <header
-    class="px-4 w-full max-w-70ch mx-auto mb-28 md:mb-0 pt-4 md:max-h-100dvh md:py-32 md:pl-18 md:flex md:flex-col md:justify-between">
+  <header class="w-full max-w-65ch lg:max-w-70ch mx-auto mb-28 lg:mb-0 lg:pt-30">
     <div>
-      <h1
-        class="font-sans text-2.05rem mt-6 mb-2 md:text-3.052rem font-600 text-violet-1">
-        Alastair Herd
-      </h1>
-      <h2 class="text-1.25rem mt-0 font-500 text-violet-1">
-        Senior Front-End Engineer at Dunelm
-      </h2>
-      <p class="text-balance text-1rem md:leading-[1.75]">
-        I transform ideas into accessible, performant and human-centered
-        experiences for the web.
+      <h1 class="font-sans text-2.05rem mt-6 mb-2 lg:text-3.052rem font-600 text-zinc-1">Alastair Herd</h1>
+      <h2 class="text-1.25rem mt-0 font-500 text-zinc-5">Senior Front-End Engineer at Dunelm</h2>
+      <p class="text-balance text-2.5rem font-700 leading-[1.3] main-bg-gradient bg-clip-text [-webkit-text-fill-color:_transparent]">
+        I enjoy being at the intersection of design and development. With a particular interest in design systems, accessibility, and performance.
       </p>
-      <nav aria-label="In-page main jump links">
-        <ul
-          class="text-sm uppercase font-700 tracking-widest mt-24 flex space-x-8">
-          <NavItem to="#about">About</NavItem>
-          <NavItem to="#blog">Blog</NavItem>
-          <NavItem to="#uses">Uses</NavItem>
-        </ul>
-      </nav>
     </div>
-    <ul class="flex space-x-5 mt-16 justify-self-end">
-      <IconLink
-        title="X.com"
-        url="https://x.com/alshdotme"
-        icon="i-fa6-brands-x-twitter"
-      />
-      <IconLink
-        title="LinkedIn"
-        url="https://www.linkedin.com/in/alsh"
-        icon="i-fa6-brands-linkedin"
-      />
-      <IconLink
-        title="GitHub"
-        url="https://github.com/alshdotme"
-        icon="i-fa6-brands-github"
-      />
-      <IconLink
-        title="Instagram"
-        url="https://www.instagram.com/alstrhrd/"
-        icon="i-fa6-brands-instagram"
-      />
-    </ul>
   </header>
-  <main class="max-w-31ch md:max-w-70ch m-auto"></main>
+  <main class="w-full max-w-65ch lg:max-w-70ch m-auto space-y-4">
+    <section class="flex flex-col gap-4 py-6">
+      <h2 class="sr-only">About Me</h2>
+      <p class="text-balance">
+        I started carving out my career as a User-Interface Designer. However I gravitated into Front-End Development and never looked back. I've
+        worked across an array of companies including a <TextLink to="https://www.acquiredigital.com">digital signage company</TextLink>, a <TextLink
+          to="https://www.mmtdigital.co.uk">
+          multi-award winning agency
+        </TextLink>
+         and at one of the largest <TextLink to="https://www.vodafone.co.uk">cellular network providers</TextLink> in the world.
+      </p>
+      <p>
+        Right now I'm helping with the creation and inception of a design system and micro-front-end architecture at the
+        <TextLink to="https://www.dunelm.com">home of homes</TextLink>. Outside of these two main outcomes my time is spent up-skilling other
+        engineers in the company on topics such as; composition, accessibility and testing on the front-end.
+      </p>
+      <a
+        class="self-start font-700 tracking-wide border-b border-b-transparent hover:border-b-violet-8 hover:text-white transition-all"
+        href="/aherd-resume-2023.pdf"
+        >Full Résumé
+      </a>
+    </section>
+    <hr class="border-zinc-5" />
+    <section>
+      <h2 id="uses" class="text-zinc-1 font-600">Uses</h2>
+      <h3>Editor & Terminal</h3>
+      <h3>Desktop Apps</h3>
+      <h3>Hardware</h3>
+      <h3>Desk Setup</h3>
+    </section>
+  </main>
 </Layout>

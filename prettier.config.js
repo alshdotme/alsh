@@ -1,7 +1,7 @@
 /** @type {import("prettier").Config} */
 module.exports = {
+  printWidth: 150,
   bracketSameLine: true,
-  jsxBracketSameLine: true,
   filepath: '**/*.{astro,js,jsx,ts,tsx}',
   semi: false,
   singleQuote: true,

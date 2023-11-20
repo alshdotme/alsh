@@ -1,0 +1,8 @@
+---
+type Props = {
+  to: string
+}
+const { to } = Astro.props
+---
+
+<a class="font-600 hover:text-violet-8 transition-colors text-zinc-1" href={to}><slot /></a>

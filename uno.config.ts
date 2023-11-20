@@ -20,7 +20,13 @@ export default defineConfig({
   ],
   preflights: [
     {
-      getCSS: () => `
+      getCSS: ({ theme }) => `
+        ::selection {
+          background-color: ${theme.colors.violet?.['800']};
+          color: ${theme.colors.zinc?.['500']};
+          -webkit-text-fill-color: ${theme.colors.zinc?.['200']};
+        }
+
         html,
         body {
           height: 100%;
@@ -54,7 +60,7 @@ export default defineConfig({
       {
         background: `radial-gradient(
           450px at var(--mouse-x) var(--mouse-y),
-          hsla(192, 91%, 53%, 0.1),
+          hsla(0, 1%, 100%, 0.067),
           transparent 80%
         )`,
       },
@@ -63,7 +69,8 @@ export default defineConfig({
       'main-bg-gradient',
       {
         'background-color': '#26004d',
-        'background-image': `radial-gradient(
+        'background-image': `
+          radial-gradient(
             at 6% 21%,
             hsla(295, 90%, 55%, 1) 0,
             hsla(295, 90%, 55%, 0) 50%
@@ -77,7 +84,8 @@ export default defineConfig({
             at 17% 82%,
             hsla(256, 89%, 51%, 1) 0,
             hsla(256, 89%, 51%, 0) 50%
-          )`,
+          )
+        `,
       },
     ],
   ],
